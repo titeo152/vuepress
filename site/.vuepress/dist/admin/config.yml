@@ -1,0 +1,112 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: "site/.vuepress/public/images/"
+public_folder: "/images/"
+collections:
+  - name: "post" # Used in routes, e.g., /admin/collections/blog
+    label: "Post" # Used in the UI
+    folder: "site/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime', dateFormat: 'YYYY-MM-DD', timeFormat: 'HH:mm', format: 'YYYY-MM-DD HH:mm', }
+      - label: 'Banner'
+        name: 'banner'
+        widget: 'image'
+        required: false
+        tagname: ''
+      - label: SEO
+        name: seo
+        widget: 'object'
+        fields:
+          - label: General
+            name: gn_seo
+            widget: 'object'
+            fields:
+              - {label: "Publisher", name: "gn_seo_publisher", widget: "string"}
+              - {label: "Description", name: "gn_seo_desc", widget: "string"}
+          - label: Twitter
+            name: tt_seo
+            widget: 'object'
+            fields:
+              - {label: "Content", name: "tt_seo_content", widget: "string"}
+              - {label: "Description", name: "tt_seo_desc", widget: "string"}
+              - {label: "Title", name: "tt_seo_title", widget: "string"}
+              - {label: "Site", name: "tt_seo_site", widget: "string"}
+          - label: Facebook
+            name: fb_seo
+            widget: 'object'
+            fields:
+              - {label: "Type", name: "fb_seo_type", widget: 'select', options: ['music.song', 'music.album', 'music.playlist', 'video.movie', 'video.episode', 'video.tvshow', 'video.other', 'article', 'book', 'profile', 'website'] }
+              - {label: "Title", name: "fb_seo_title", widget: "string"}
+              - {label: "Description", name: "fb_seo_desc", widget: "string"}
+              - {label: "URL", name: "fb_seo_url", widget: "string"}
+              - {label: "Site Name", name: "fb_seo_sitename", widget: "string"}
+
+      - {label: "Category", name: "category", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "CN post" # Used in routes, e.g., /admin/collections/blog
+    label: "CN Post" # Used in the UI
+    folder: "site/zh/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime', dateFormat: 'YYYY-MM-DD', timeFormat: 'HH:mm', format: 'YYYY-MM-DD HH:mm', }
+      - label: 'Banner'
+        name: 'banner'
+        widget: 'image'
+        required: false
+        tagname: ''
+      - label: SEO
+        name: seo
+        widget: 'object'
+        fields:
+          - label: General
+            name: gn_seo
+            widget: 'object'
+            fields:
+              - {label: "Publisher", name: "gn_seo_publisher", widget: "string"}
+              - {label: "Description", name: "gn_seo_desc", widget: "string"}
+          - label: Twitter
+            name: tt_seo
+            widget: 'object'
+            fields:
+              - {label: "Content", name: "tt_seo_content", widget: "string"}
+              - {label: "Description", name: "tt_seo_desc", widget: "string"}
+              - {label: "Title", name: "tt_seo_title", widget: "string"}
+              - {label: "Site", name: "tt_seo_site", widget: "string"}
+          - label: Facebook
+            name: fb_seo
+            widget: 'object'
+            fields:
+              - {label: "Type", name: "fb_seo_type", widget: 'select', options: ['music.song', 'music.album', 'music.playlist', 'video.movie', 'video.episode', 'video.tvshow', 'video.other', 'article', 'book', 'profile', 'website'] }
+              - {label: "Title", name: "fb_seo_title", widget: "string"}
+              - {label: "Description", name: "fb_seo_desc", widget: "string"}
+              - {label: "URL", name: "fb_seo_url", widget: "string"}
+              - {label: "Site Name", name: "fb_seo_sitename", widget: "string"}
+
+      - {label: "Category", name: "category", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "Docs" # Used in routes, e.g., /admin/collections/blog
+    label: "Docs" # Used in the UI
+    folder: "site/docs" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime', dateFormat: 'YYYY-MM-DD', timeFormat: 'HH:mm', format: 'YYYY-MM-DD HH:mm', }
+      - {label: "Category", name: "category", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "CN Docs" # Used in routes, e.g., /admin/collections/blog
+    label: "CN Docs" # Used in the UI
+    folder: "site/zh/docs" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: 'Publish Date', name: 'date', widget: 'datetime', dateFormat: 'YYYY-MM-DD', timeFormat: 'HH:mm', format: 'YYYY-MM-DD HH:mm', }
+      - {label: "Category", name: "category", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
